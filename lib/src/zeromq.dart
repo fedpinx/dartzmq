@@ -65,7 +65,10 @@ class ZContext {
   /// if there are actually listeners on sockets
   void _startPolling() {
     if (_timer == null && _listening.isNotEmpty) {
-      _timer = Timer.periodic(const Duration(seconds: 1), (timer) => _poll());
+      _timer = Timer.periodic(
+        const Duration(milliseconds: 50),
+        (timer) => _poll(),
+      );
     }
   }
 
